@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)->first();
-
+// dd($user->id);
         if(!$user || !\Hash::check($request->password, $user->password)){
             return response()->json([
                 'message' => 'Password tidak sesuai'
